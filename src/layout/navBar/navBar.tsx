@@ -73,14 +73,6 @@ const NavBar = () => {
             key: '3',
             label: (
                 <div className="drp-items-nav">
-                    <img src={settings} alt="" /> <p>Settings</p>
-                </div>
-            ),
-        },
-        {
-            key: '3',
-            label: (
-                <div className="drp-items-nav">
                     <img src={Switch} alt="" /> <p>Switch Dashboards</p>
                 </div>
             ),
