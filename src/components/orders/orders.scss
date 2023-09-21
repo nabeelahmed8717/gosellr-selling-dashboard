@@ -1,0 +1,18 @@
+.wrapper-orders-main {
+    .head-orders {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 39px;
+        flex-wrap: wrap;
+        gap: 20px;
+        h2{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .search-wrapper{
+            background-color: rgb(255, 255, 255);
+            width: 250px;
+        }
+    }
+}

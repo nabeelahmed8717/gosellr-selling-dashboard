@@ -1,0 +1,27 @@
+.wrapper-action-modal{
+    .modal-buttons{
+        display: flex;
+        justify-content: end;
+        margin-top: 20px;
+        gap: 15px;
+        button{
+            padding: 0 26px;
+            height: 35px;
+            font-size: 14px;
+            border: none;
+        }
+        .delete-button{
+            background-color: #e74c3c2e;
+            color: #e74c3c;
+            transition: 0.3s;
+            &:hover{
+                background-color: #e74c3c;
+                color: #fff;
+            }
+        }
+        .cancel-button{
+            background-color: #E9E9E9;
+            color: #313131;
+        }
+    }
+}
