@@ -96,40 +96,47 @@ const NavBar = () => {
     ]
 
     const respMenuItems = [
+       
         {
-            key: '1',
-            label: 'Upload KYC',
-            icon: document,
-            link: './upload-kyc'
+            key: '2',
+            label: 'Store Settings',
+            icon: settings,
+            link: './store-settings'
         },
         {
             key: '2',
-            label: 'Settings',
-            icon: settings,
-            link: './settings'
+            label: 'Marketing',
+            icon: marketingIcon,
+            link: './marketing'
+        },
+        {
+            key: '6',
+            label: "Packages",
+            icon: packagesIcon,
+            link: './packages'
+        },
+        {
+            key: '9',
+            label: "Product Verification",
+            icon: verificationIcon,
+            link: './product-verification'
         },
         {
             key: '3',
             label: 'Switch Dashboards',
             icon: Switch,
-            link: ''
-        },
-        {
-            key: '6',
-            label: 'Packages',
-            icon: packagesIcon,
-            link: './home'
-        },
-        {
-            key: '7',
-            label: 'Orders',
-            icon: orderIcon,
             link: './home'
         },
         {
             key: '5',
             label: 'Sign out',
             icon: signOut,
+            link: './home'
+        },
+        {
+            key: '1',
+            label: 'Upload KYC',
+            icon: document,
             link: './home'
         },
     ]
@@ -218,7 +225,7 @@ const NavBar = () => {
                         <UserProfileCard isMobile={isMobile} />
                         {
                             respMenuItems.map((item: any) => (
-                                <div className="drp-items-nav" onClick={() => { item.link && navigate(`${item.link}`) }} style={{ marginTop: '10px' }} key={item.key}>
+                                <div className="drp-items-nav" onClick={() => { item.link && navigate(`${item.link}`); setisDrawerOpen(false)  }} style={{ marginTop: '10px' }} key={item.key}>
                                     <img src={item.icon} alt="" /> <p>{item.label}</p>
                                 </div>
                             ))

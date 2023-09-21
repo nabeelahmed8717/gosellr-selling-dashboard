@@ -10,7 +10,7 @@ const UserProfileCard = ({isMobile}:any) => {
                     <div className="user-img-wrapper"><img src={userIcon} alt="" /></div>
                 </div>
                 <div className="d-flex flex-column">
-                    <h2 className='fs-14 fw-600'>Willam Marks</h2>
+                    <h2 className='fs-14 fw-600'>Smile Shop</h2>
                     <p className='fs-12 d-flex align-center' style={{ gap: '5px' }}>Verified <img src={verified} alt="" width={15} height={15} /></p>
                 </div>
             </div>

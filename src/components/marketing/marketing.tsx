@@ -21,7 +21,7 @@ const Marketing = () => {
             fontWeight:"500"
         }}
         >EHB Marketing -- Coming Soon</p>
-        <img src={wrapperMarketing} height={500} alt="" />
+        <img src={wrapperMarketing} style={{ width:'80vw'}} alt="" />
         
     </div>
   )
