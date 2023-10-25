@@ -10,18 +10,18 @@ const Loadable = (Component: LazyExoticComponent<FC>) => (props: any) =>
 (
   <Suspense fallback={
     <div
-    className="d-flex justify-center align-center" 
-    style={{ 
-      height: "100vh", 
-      // backgroundColor:"#fff",
-      width:"100%",
-      position:'fixed',
-      left:"0",
-      top:"0", 
-    }}
+      className="d-flex justify-center align-center"
+      style={{
+        height: "100vh",
+        // backgroundColor:"#fff",
+        width: "100%",
+        position: 'fixed',
+        left: "0",
+        top: "0",
+      }}
     >
       {/* <Spin indicator={antIcon} /> */}
-      <img src={loadingGif} width={60}  alt="" />
+      <img src={loadingGif} width={60} alt="" />
     </div>
   }>
     <Component {...props} />
@@ -36,6 +36,7 @@ const Chat = Loadable(lazy(() => import("./pages/chat")));
 const PendingOrders = Loadable(lazy(() => import("./pages/orders/pendingOrders")));
 const DeclineOrders = Loadable(lazy(() => import("./pages/orders/declineOrders")));
 const CompletedOrders = Loadable(lazy(() => import("./pages/orders/completedOrders")));
+const ProcessOrder = Loadable(lazy(() => import("./pages/processOrder")));
 
 const MyProducts = Loadable(lazy(() => import("./pages/myProducts")));
 const AddProduct = Loadable(lazy(() => import("./pages/addProduct")));
@@ -80,6 +81,10 @@ export const routes: any = [
       {
         path: "orders/completed-orders",
         element: <CompletedOrders />,
+      },
+      {
+        path: "process-order",
+        element: <ProcessOrder />,
       },
       {
         path: "my-products",
