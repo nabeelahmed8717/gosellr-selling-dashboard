@@ -31,7 +31,9 @@ const MyProducts = () => {
             </div>
             <ActionModal
                 isDeleteModalOpen={isDeleteModalOpen}
-                setIsDeleteModalOpen={setIsDeleteModalOpen}
+                onClose={()=> setIsDeleteModalOpen(false)}
+                handelSubmit={()=> setIsDeleteModalOpen(false)}
+                okText="Yes, Delete"
                 modalType='delete'
                 headerContent='Confirmation delete'
                 content="Are you sure you want to delete this content ?"

@@ -9,6 +9,7 @@
             height: 35px;
             font-size: 14px;
             border: none;
+            border-radius: 20px;
         }
         .delete-button{
             background-color: #e74c3c2e;
@@ -16,6 +17,15 @@
             transition: 0.3s;
             &:hover{
                 background-color: #e74c3c;
+                color: #fff;
+            }
+        }
+        .info-button{
+            background-color: #3498db33;
+            color: #3498db;
+            transition: 0.3s;
+            &:hover{
+                background-color: #3498db;
                 color: #fff;
             }
         }

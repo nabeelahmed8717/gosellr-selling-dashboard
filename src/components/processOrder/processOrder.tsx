@@ -1,15 +1,33 @@
-import { Col, Image, Row } from 'antd';
+import { Col, Image, Row, Tabs, TabsProps } from 'antd';
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import "./processOrder.scss"
 import RidersGrid from '../../shared/ridersGrid/ridersGrid';
 import { ridersNearByData } from '../../mock/ridersNearBy';
+import StoreRiders from './storeRiders/storeRiders';
+import { storeRidersData } from '../../mock/storeRiders';
 
 const ProcessOrder = () => {
     const location = useLocation();
     const { orderDetails } = location.state;
 
-    console.log("orderDetails", orderDetails)
+    const onChange = (key: string) => {
+        console.log(key);
+      };
+      
+      const items: TabsProps['items'] = [
+        {
+          key: '1',
+          label: 'Riders near by',
+          children: <RidersGrid data={ridersNearByData}/>,
+        },
+        {
+          key: '2',
+          label: 'Store Riders',
+          children: <StoreRiders data={storeRidersData}/>,
+        }
+      ];
+
     return (
         <div className='wrapper-process-orders-main bx-bg--white border-repel card-shadow pending-wrapper'>
             <div className="head-orders">
@@ -17,7 +35,7 @@ const ProcessOrder = () => {
             </div>
             <div className="wrapper-inner">
                 <Row gutter={[20, 20]}>
-                    <Col lg={16}>
+                    <Col lg={14}>
                         <div className='order-details'>
                             <Row gutter={[20, 20]}>
                                 <Col lg={10}>
@@ -38,9 +56,9 @@ const ProcessOrder = () => {
                             </Row>
                         </div>
                     </Col>
-                    <Col lg={8}>
+                    <Col lg={10}>
                         <div className='dispatch'>
-                           <RidersGrid data={ridersNearByData}/>
+                        <Tabs defaultActiveKey="2" items={items} onChange={onChange} />
                         </div>
                     </Col>
                 </Row>
