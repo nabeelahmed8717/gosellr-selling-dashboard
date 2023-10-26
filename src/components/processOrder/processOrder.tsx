@@ -35,7 +35,7 @@ const ProcessOrder = () => {
             </div>
             <div className="wrapper-inner">
                 <Row gutter={[20, 20]}>
-                    <Col lg={14}>
+                    <Col xs={24} sm={24} md={24} lg={14}>
                         <div className='order-details'>
                             <Row gutter={[20, 20]}>
                                 <Col lg={10}>
@@ -56,9 +56,9 @@ const ProcessOrder = () => {
                             </Row>
                         </div>
                     </Col>
-                    <Col lg={10}>
+                    <Col xs={24} sm={24} md={24} lg={10}>
                         <div className='dispatch'>
-                        <Tabs defaultActiveKey="2" items={items} onChange={onChange} />
+                        <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
                         </div>
                     </Col>
                 </Row>
