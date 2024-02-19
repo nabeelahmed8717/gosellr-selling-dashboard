@@ -1,10 +1,12 @@
-import { Avatar, Button, Image, Input, Table } from 'antd';
+import { Avatar, Button, Card, Image, Input, Table, Tabs } from 'antd';
 import React, { useState } from 'react'
 import "./productVerification.scss"
 
 import viewIcon from "../../assets/icons/view.svg"
 import searchIcon from "../../assets/icons/search.svg"
 import type { ColumnsType } from 'antd/es/table';
+
+const { TabPane } = Tabs;
 
 const ProductVerification = () => {
   const data = [
@@ -120,7 +122,13 @@ const ProductVerification = () => {
     )
   );
 
+
+  //wallet 
+
+ 
+
   return (
+    <>
     <div className='wrapper-product-verification-main bx-bg--white border-repel card-shadow'>
       <div className="head-ver">
         <h2>Product Verification</h2>
@@ -135,6 +143,9 @@ const ProductVerification = () => {
         />
       </div>
     </div>
+
+
+    </>
   )
 }
 

@@ -48,6 +48,9 @@ const ProductVerification = Loadable(lazy(() => import("./pages/productVerificat
 const Marketing = Loadable(lazy(() => import("./pages/marketing")));
 
 
+const EhbWallet = Loadable(lazy(() => import("./pages/ehbWallet")));
+
+
 export const routes: any = [
   { path: "/", element: <Navigate to="home" /> },
   {
@@ -109,6 +112,10 @@ export const routes: any = [
       {
         path: "product-verification",
         element: <ProductVerification />,
+      },
+      {
+        path: "ehb-wallet",
+        element: <EhbWallet />,
       },
     ],
   },

@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import "./addProduct.scss"
-import { Button, Checkbox, Col, ColorPicker, Form, Image, Input, InputNumber, List, Modal, Popconfirm, Row, Select, SelectProps, Space, Switch, TreeSelect } from 'antd';
+import { Alert, Button, Checkbox, Col, ColorPicker, Form, Image, Input, InputNumber, List, Modal, Popconfirm, Row, Select, SelectProps, Space, Switch, TreeSelect } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { categoryData } from '../../mock/gosellrCategories';
 import uploadIcon from "../../assets/icons/upload.svg"
 import crossSmallIcon from "../../assets/icons/cross-small.svg"
 import { UserOutlined } from '@ant-design/icons';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
-
+import { dummyProducts } from '../../mock/dummyProducts';
+import { CloseCircleFilled } from '@ant-design/icons';
 
 
 const { Option } = Select;
@@ -44,6 +45,12 @@ const AddProduct = () => {
   const [value, setValue] = useState<string>();
   const [productPrice, setProductPrice] = useState<number>();
   const [checked, setChecked] = useState(false);
+
+  const [searchProductTemplate, setSearchProductTemplate] = useState('')
+
+  const filteredProducts = dummyProducts.filter((product: any) =>
+    product.productLabel.toLowerCase().includes(searchProductTemplate.toLowerCase())
+  );
 
   const ammountSellerGet = productPrice && productPrice * 0.95
 
@@ -89,8 +96,6 @@ const AddProduct = () => {
     setPreviewImages(updatedPreviewImages);
   };
 
-
-
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
@@ -115,8 +120,6 @@ const AddProduct = () => {
   };
 
 
-  console.log("colors", colors)
-
   return (
     <div className="add-container-main-container  bx-bg--white border-repel card-shadow">
 
@@ -127,13 +130,72 @@ const AddProduct = () => {
 
       <div className="product-nodes-copied-container">
         <p className='fs-14 fw-500' style={{ marginBottom: "5px" }}>Search and copy products details</p>
-        <Input style={{ width: '100%', height: '40px' }} placeholder='search for product' />
+        <Input onChange={(e) => setSearchProductTemplate(e.target.value)} value={searchProductTemplate} style={{ width: '100%', height: '40px', boxShadow: "none" }} placeholder='Search for product'
+          suffix={
+            <CloseCircleFilled onClick={() => setSearchProductTemplate('')} />
+          } />
+
       </div>
+
+      {
+        searchProductTemplate.length > 0 &&
+        <div className="search-product-template">
+          {
+            filteredProducts.length > 0 &&
+            <>
+              <Alert message="Select products you want to copy" type="info" showIcon />
+              <Alert message="Owner's Attribute will auto add to published post" type="info" showIcon style={{ marginTop: "5px" }} />
+              <br />
+            </>
+          }
+
+          <div className="searched-product-inner">
+            {
+              filteredProducts.length > 0 ?
+                <>
+                  {filteredProducts.map((item: any) => (
+                    <div className="product-selectList-bx">
+                      <div className='product-image'>
+                        <Image src={item.productImage} />
+                      </div>
+                      <div>
+                        <h3 className='fs-15 fw-500'>{item.productLabel}</h3>
+                        <p><strong className='fw-500'>Description :</strong> {item?.productDescription}</p>
+                        <p><strong className='fw-500'>Price :</strong> RS.{item.productPrice}</p>
+                      </div>
+                    </div>
+                  ))}
+                </>
+                :
+                <div className='no-founds'>
+                  <h4>The product you are looking is currently unavailable</h4>
+                  <p>Try another "keyword"</p>
+                </div>
+            }
+          </div>
+
+        </div>
+      }
+
 
       <div className="form-product-upload">
         <Form
           name="basic"
-          initialValues={{ remember: true }}
+          initialValues={{
+            "productTitle": "Dummy product ~pasted ",
+            "productDescription": "This is a dummy product description",
+            "productCategory": "Electronics",
+            "manualCategory": "mens",
+            "gender": "male",
+            "productSize": [
+              "S", "M"
+            ],
+            "productPrice": 23,
+            "productWeight": "2",
+            "packageLength": "2",
+            "packageBreadth": "3",
+            "packageWidth": "4"
+          }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           // autoComplete="off"
@@ -219,10 +281,7 @@ const AddProduct = () => {
                     </Col>
                   </div>
                 </div>
-
               </Row>
-
-
             </Col>
             <Col xs={24} sm={24} md={12} lg={12}>
               <Row>
@@ -414,7 +473,7 @@ const AddProduct = () => {
                 name="allowToCopy"
                 rules={[{ required: false, message: 'Required field' }]}
               >
-                <Switch  />
+                <Switch />
               </Form.Item>
             </Col>
           </Row>
@@ -424,6 +483,8 @@ const AddProduct = () => {
           <Button htmlType='submit' className='upload-product-button'>Add Product</Button>
         </Form>
       </div>
+
+
     </div>
   )
 }

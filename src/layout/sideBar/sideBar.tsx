@@ -17,6 +17,7 @@ import marketingIcon from "../../assets/icons/marketing.svg"
 import verificationIcon from "../../assets/icons/check-circle.svg"
 import analysisIcon from "../../assets/icons/analysis.svg"
 import guideIcon from "../../assets/icons/memo-pad.svg"
+import BrandIcon from "../../assets/brandAssets/brand-logo-selling.svg"
 
 import {
   AppstoreOutlined,
@@ -74,8 +75,7 @@ const SideBar = () => {
   return (
     <div className='main-sidebar-wrapper'>
       <div className="logo-main-area">
-        <h3>EHB</h3>
-        <p>Sellers Dashboard</p>
+        <img src={BrandIcon} width={120} alt="" />
       </div>
       <Menu
         defaultSelectedKeys={['1']}

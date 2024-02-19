@@ -47,7 +47,7 @@ const Dashboard = () => {
       </div>
       <Row gutter={[20, 20]}>
         <Col xs={24} sm={24} md={12} lg={6}>
-          <div className="income-card-wrapper local-main-cards">
+          <div className="income-card-wrapper local-main-cards" onClick={()=> navigate('../ehb-wallet')}>
             <div className='flex-tit-icon'>
               <p>Account Balance</p>
               <div className="card-earnings ">
